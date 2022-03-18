@@ -1,0 +1,10 @@
+.Title {
+  font-family: monospace;
+  font-size: medium;
+  font-weight: bold;
+  color: black;
+  background-color: deeppink;
+  width: 20%;
+  text-align: center;
+  height: 30px;
+}
