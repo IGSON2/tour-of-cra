@@ -1,8 +1,12 @@
 import PropTypes from "prop-types";
 import styles from "./Button.module.css";
 
-function Btn({ text }) {
-  return <button className={styles.Btn}>{text}</button>;
+function Btn({ ifClick, text }) {
+  return (
+    <button onClick={ifClick} className={styles.Btn}>
+      {text}
+    </button>
+  );
 }
 
 //prop-Types 지정 (같은 방식)
