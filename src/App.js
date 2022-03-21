@@ -9,6 +9,10 @@ function App() {
 
   useEffect(() => {
     console.log("Searching", Keyword, "...");
+    return () =>
+      setKeyword(
+        (perv) => "Search link : " + "http://www.naver.com/search/" + perv
+      );
   }, [counter]);
 
   //useEffect(함수,변화를 감지할 property)
