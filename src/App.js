@@ -1,36 +1,41 @@
-import { useEffect, useState } from "react";
-import Btn from "./myButton";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  const [counter, setCounter] = useState(0);
-  const onClick = () => setCounter((prev) => prev + 1);
-  const [Keyword, setKeyword] = useState();
-  const wordChange = (event) => setKeyword(event.target.value);
-
-  useEffect(() => {
-    console.log("Searching", Keyword, "...");
-    //useEffect의 Fn 인자에 함수를 return 해 주면 Fn이 끝나기전에 추가로 함수를 실행해 줄 수있다 Go의 defer와 비슷
-    return () =>
-      setKeyword(
-        (perv) => "Search link : " + "http://www.naver.com/search/" + perv
-      );
-  }, [counter]);
-
-  //useEffect(함수,변화를 감지할 property)
-  //useEffect는 Property가 변화할 때 마다 인자로 받는 함수를 실행한다. Property를 지정하지 않으면 오직 한번만 실행된다. Go의 Sync.Once.Do(func(){})와 같음.
+  const [todo, setTodo] = React.useState("");
+  const onChange = (event) => {
+    setTodo(event.target.value);
+  };
+  const [todos, setTodos] = React.useState([]);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (todo === "") {
+      return;
+    }
+    setTodos((current) => [todo, ...current]);
+    setTodo("");
+  };
+  React.useEffect(() => console.log(todos), [todos]);
   return (
     <div>
-      <input
-        value={Keyword}
-        onChange={wordChange}
-        placeholder="Search in here"
-        type="text"
-      ></input>
-      <Btn ifClick={onClick} text={"Search"} />{" "}
-      {/*Btn 컴포넌트를 text만 바꾸어 두번 사용해 봤다.*/}
-      <h1>Search Result : {Keyword}</h1>
-      <h1>{counter}</h1>
-      <Btn ifClick={onClick} text={"ThisIsNeverButton"} />
+      <h1>You have to do ({todos.length})</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          value={todo}
+          type="text"
+          placeholder="Write your to do..."
+        />
+        <button>Add To list</button>
+      </form>
+      <hr />
+      {/*Array.map(function((prev)=>prev+(Changes)) 함수 인자를 받는 배열의 map() 메소드를 이용하여 배열을 순회할 수 있다.*/}
+      {/*리액트는 기본적으로 list에 있는 모든 item을 인식하기 때문에 key를 넣어 고유하게 만들어줘야함*/}
+      {/*map()의 두번째 인자는 index이므로 li태그의 key값에 삽입하여 유일성을 부여해줌.*/}
+      <ul>
+        {todos.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
