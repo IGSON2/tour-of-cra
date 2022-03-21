@@ -9,6 +9,7 @@ function App() {
 
   useEffect(() => {
     console.log("Searching", Keyword, "...");
+    //useEffect의 Fn 인자에 함수를 return 해 주면 Fn이 끝나기전에 추가로 함수를 실행해 줄 수있다 Go의 defer와 비슷
     return () =>
       setKeyword(
         (perv) => "Search link : " + "http://www.naver.com/search/" + perv
