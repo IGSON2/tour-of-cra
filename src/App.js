@@ -1,41 +1,78 @@
+import { string } from "prop-types";
 import React, { useEffect, useState } from "react";
 
-function App() {
-  const [todo, setTodo] = React.useState("");
-  const onChange = (event) => {
-    setTodo(event.target.value);
+function Calculator({ loadend }) {
+  const [coins, setCoins] = React.useState([]);
+  const [name, setName] = React.useState("");
+  const [price, setPrice] = React.useState(0);
+  const onSelect = (event) => {
+    const obj = JSON.parse(event.target.value); //JSON.parse() 메서드를 이용해 String 타입 JSON을 분석하여 각각의 키값들을 속성으로 가지는 객체를 반환시킬 수 있다.
+    setName(obj.name);
+    setPrice(obj.quotes.USD.price);
   };
-  const [todos, setTodos] = React.useState([]);
-  const onSubmit = (event) => {
-    event.preventDefault();
-    if (todo === "") {
-      return;
-    }
-    setTodos((current) => [todo, ...current]);
-    setTodo("");
+  const [balance, setBalance] = useState();
+  const balanceChange = (event) => {
+    setBalance(event.target.value);
   };
-  React.useEffect(() => console.log(todos), [todos]);
+  const buttonClick = () => {
+    setBalance("");
+    setPrice(0);
+    setName("");
+  };
+  useEffect(() => {
+    fetch("https://api.coinpaprika.com/v1/tickers?limit=50")
+      .then((Response) => Response.json())
+      .then((json) => {
+        setCoins(json);
+        loadend();
+      });
+  }, []);
   return (
     <div>
-      <h1>You have to do ({todos.length})</h1>
-      <form onSubmit={onSubmit}>
+      <div>
         <input
-          onChange={onChange}
-          value={todo}
-          type="text"
-          placeholder="Write your to do..."
-        />
-        <button>Add To list</button>
-      </form>
-      <hr />
-      {/*Array.map(function((prev)=>prev+(Changes)) 함수 인자를 받는 배열의 map() 메소드를 이용하여 배열을 순회할 수 있다.*/}
-      {/*리액트는 기본적으로 list에 있는 모든 item을 인식하기 때문에 key를 넣어 고유하게 만들어줘야함*/}
-      {/*map()의 두번째 인자는 index이므로 li태그의 key값에 삽입하여 유일성을 부여해줌.*/}
-      <ul>
-        {todos.map((item, index) => (
-          <li key={index}>{item}</li>
+          value={balance}
+          type={"number"}
+          onChange={balanceChange}
+          placeholder="Insert your balance"
+        ></input>
+        <button onClick={buttonClick}>Clear</button>
+      </div>
+
+      <select onChange={onSelect}>
+        <option key="NOTSELECTED" value={JSON.stringify({ name: "" })}>
+          Select coin
+        </option>
+        {coins.map((coin) => (
+          <option key={coin.symbol} value={JSON.stringify(coin)}>
+            {/*Json.stringify()메서드를 이용해 json 자체를 string value로 전달해 줄 수 있다.*/}
+            {coin.name.toUpperCase()} : ${coin.quotes.USD.price.toFixed(3)} USD
+          </option>
         ))}
-      </ul>
+      </select>
+
+      {balance > 0 && name != "" ? (
+        <h2>
+          You can buy [{name}] {(balance / price).toFixed(2)} EA
+        </h2>
+      ) : balance > 0 ? (
+        <h2>Please select Coin</h2>
+      ) : (
+        <h2>Please insert balance</h2>
+      )}
+    </div>
+  );
+}
+
+function App() {
+  const [loading, setLoading] = React.useState(true);
+  const loadend = () => setLoading((current) => !current);
+  return (
+    <div>
+      <h1>How many coins you can buy</h1>
+      <hr />
+      {loading ? <strong>Loading...</strong> : null}
+      <Calculator loadend={loadend} />
     </div>
   );
 }
