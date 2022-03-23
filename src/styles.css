@@ -1,8 +1,22 @@
 * {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+/*
+모든 태그 * 에 대해서 margin과 padding을 0으로 만드는 이유는
+모든 태그들은 고유의 마진 패딩값을 가지고 있는데, 이걸 0으로 만들어서 디자인하기 쉽게 만들어 주기 때문. 초기화라고 보면 됨.
+
+box-sizing은 박스의 크기를 어떤것을 기준으로 계산할지 정하는 속성이다.
+content-box : 콘텐트 영역을 기준으로 크기를 정함. border-box : 테두리를 기준으로 크기를 정함. 
+  initial : 기본값으로 설정함. inherit : 부모 요소의 속성값을 상속.
+보통 box는 콘텐츠 내용 + 둘레의 두께로 구성되어 있는데, 콘텐츠 영역을 기준으로 크기를 정하면 계산하기 어려워지므로 *{content-box:border-box}로 설정해 줌. 
+  */
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  height: 100%;
+  background-color: #fcf6f5;
 }
 
 a:link {

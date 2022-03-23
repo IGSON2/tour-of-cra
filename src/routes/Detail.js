@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import OneMovieDetail from "../components/OneMovieDetail";
+import Loader from "../components/Loader";
+import styles from "./Detail.module.css";
 function Detail() {
   const params = useParams();
   const [loading, setLoading] = useState(true);
@@ -14,9 +16,9 @@ function Detail() {
       });
   }, []);
   return (
-    <div>
+    <div className={styles.container}>
       {loading ? (
-        <h1>LOADING...</h1>
+        <Loader />
       ) : (
         <div>
           {

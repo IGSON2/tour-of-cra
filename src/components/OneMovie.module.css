@@ -51,19 +51,26 @@ flex-direction 속성은 플렉스 컨테이너 내의 아이템을 배치할 �
   margin: 20px 0 0 30px; /*top부터 시계방향*/
 }
 
-.shortView_letters h3,
-.summary p,
-.shortView_letters div {
+.summary p {
   margin: 10px;
+}
+
+.shortView_letters p {
+  margin: 0 0 10px 0;
 }
 
 .shortView_letters li {
   list-style-type: none;
 }
 
+.genresArray {
+  margin: 0 0 20px 0;
+}
+
 .summary {
   width: 100%;
   padding: 0%, 10px, 10px, 10px;
+  font-weight: 300;
 }
 
 .Detail_bg {

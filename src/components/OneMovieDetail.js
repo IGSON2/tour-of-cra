@@ -10,6 +10,7 @@ const onErrorImg = (e) => {
 const onErrorBackImg = (e) => {
   e.target.src = default_Back_Img;
 };
+//onError로 오류 대비 Default Img 지원
 
 function OneMovieDetail({
   BgImg,
@@ -36,21 +37,15 @@ function OneMovieDetail({
           <div className={styles.shortView_Img}>
             <img src={poster} alt={title} onError={onErrorImg} />
           </div>
-          {/* title, rating, runtime, genre */}
           <div className={styles.shortView_letters}>
             <h3>{title}</h3>
-            <p>{rating ? `rating: ${rating} / 10` : null}</p>
-            <p>{runtime ? `runtime: ${runtime} (min)` : null}</p>
             {genres ? (
-              <div>
-                <b>{"genres"}</b>
-                <ul>
-                  {genres.map((g) => (
-                    <li key={g}>{g}</li>
-                  ))}
-                </ul>
+              <div className={styles.genresArray}>
+                <h5>[{genres.map((g, idx) => (idx === 0 ? g : `, ${g}`))}]</h5>
               </div>
             ) : null}
+            <p>{rating ? `rating: ${rating} / 10` : null}</p>
+            <p>{runtime ? `runtime: ${runtime} (min)` : null}</p>
           </div>
         </div>
 

@@ -1,0 +1,72 @@
+/*margin은 border를 기준으로 밖 영역의 여백이고,
+padding은 border를 기준으로 안 영역의 여백을 의미한다.*/
+.movieCard {
+  position: relative;
+  border-radius: 5px;
+  color: inherit; /*상속*/
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  /* offset-x | offset-y | blur-radius | spread-radius | color 
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
+}
+.movieImg {
+  padding-left: 20px;
+  grid-column: 1;
+  grid-row: 1;
+  position: relative; /*현재 위치기준 상대적인 position*/
+  top: -50px;
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+
+.movieTitle {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 9px;
+  padding: 0px 10px 10px 20px;
+  width: 100%;
+}
+
+.movieRating {
+  padding: 0px 10px 10px 20px;
+  font-size: 15px;
+  grid-column: 2;
+  grid-row: 1;
+  text-align: end;
+}
+
+.movieSummary {
+  padding: 10px 10px 10px 20px;
+  font-size: 70%;
+  position: absolute;
+  top: 35%;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.movieGenres {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 0px 10px 10px 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  list-style-type: none;
+  text-align: end;
+  font-size: 70%;
+}
+
+.star {
+  color: #990011;
+}
+
+.rightSide {
+  height: 100%;
+}
+/*
+<div> 내에서 어떤 item을 맨 아래로 정렬하는 방법
+상위<div style="position:relative;">
+하위<div style="position:absolute; bottom:0;">
+*/

@@ -14,5 +14,8 @@
   position: relative;
   top: 20%;
   font-size: 30px;
-  color: #e50914;
+  color: #990011;
+  font-family: "Black Han Sans", sans-serif;
 }
+
+/*text-shadow는 반시계 방향으로 왼,아래,오,위 순서다.*/
