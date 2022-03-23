@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css";
 function Navbar() {
   return (
     <div className={styles.container}>
-      <Link to="/">
+      <Link to={`${process.env.PUBLIC_URL}/`}>
         <h5 className={styles.pageName}>IGSONFLIX</h5>
       </Link>
     </div>
