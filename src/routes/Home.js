@@ -24,7 +24,7 @@ function Home() {
             <AllMovie
               id={movie.id}
               title={movie.title_long}
-              poster={movie.medium_cover_image}
+              posterPC={movie.medium_cover_image}
               genres={movie.genres}
               rating={movie.rating}
               summary={movie.summary}

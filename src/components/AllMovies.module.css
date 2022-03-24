@@ -12,9 +12,11 @@ padding은 border를 기준으로 안 영역의 여백을 의미한다.*/
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
 }
 .movieImgPC {
-  padding-left: 20px;
+  margin-left: 20px;
   grid-column: 1;
   grid-row: 1;
+  width: 230px;
+  height: 345px;
   position: relative; /*현재 위치기준 상대적인 position*/
   top: -50px;
   box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),

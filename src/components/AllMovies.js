@@ -2,13 +2,13 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "./AllMovies.module.css";
 
-function AllMovie({ id, title, poster, genres, rating, summary }) {
+function AllMovie({ id, title, posterPC, genres, rating, summary }) {
   return (
     <div>
       <Link to={`/movie/${id}`}>
         <div className={styles.movieCard} key={id}>
           <div className={styles.movieImgPC}>
-            <img src={poster} />
+            <img src={posterPC} />
           </div>
           <div className={styles.rightSide}>
             <div className={styles.movieTitle}>
