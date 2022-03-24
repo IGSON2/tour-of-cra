@@ -48,8 +48,11 @@ height는 컨테이너의 높이만큼 늘어납니다.
 
 @media screen and (max-width: 1000px) {
   .movies {
-    grid-template-columns: repeat(1, minmax(auto, 1fr));
+    font-size: 3vw;
+    grid-template-columns: repeat(1, minmax(auto, 100%));
     width: 100%;
+    padding: 10px;
+    padding-top: 70px;
   }
 }
 

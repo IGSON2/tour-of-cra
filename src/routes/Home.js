@@ -23,7 +23,8 @@ function Home() {
           {movies.map((movie) => (
             <AllMovie
               id={movie.id}
-              title={movie.title_long}
+              title={movie.title}
+              year={movie.year}
               posterPC={movie.medium_cover_image}
               genres={movie.genres}
               rating={movie.rating}
