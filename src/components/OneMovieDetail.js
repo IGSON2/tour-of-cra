@@ -39,13 +39,15 @@ function OneMovieDetail({
           </div>
           <div className={styles.shortView_letters}>
             <h3>{title}</h3>
-            {genres ? (
-              <div className={styles.genresArray}>
-                <h5>[{genres.map((g, idx) => (idx === 0 ? g : `, ${g}`))}]</h5>
-              </div>
-            ) : null}
             <p>{rating ? `rating: ${rating} / 10` : null}</p>
             <p>{runtime ? `runtime: ${runtime} (min)` : null}</p>
+            {genres ? (
+              <div className={styles.genresArray}>
+                <div>
+                  {genres.map((g, idx) => (idx === 0 ? `#${g}` : `, #${g}`))}
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
 

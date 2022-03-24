@@ -7,7 +7,7 @@ function AllMovie({ id, title, poster, genres, rating, summary }) {
     <div>
       <Link to={`/movie/${id}`}>
         <div className={styles.movieCard} key={id}>
-          <div className={styles.movieImg}>
+          <div className={styles.movieImgPC}>
             <img src={poster} />
           </div>
           <div className={styles.rightSide}>

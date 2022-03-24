@@ -82,3 +82,23 @@ flex-direction 속성은 플렉스 컨테이너 내의 아이템을 배치할 �
   min-height: 100%;
   filter: brightness(50%);
 }
+
+@media screen and (max-width: 1000px) {
+  .show {
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    font-size: 3vw;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(230, auto));
+  }
+  .shortView {
+    position: relative;
+  }
+  .genresArray {
+    font-size: 0.5vw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
