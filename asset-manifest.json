@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tour-of-cra/static/css/main.2cb7073b.css",
+    "main.css": "/tour-of-cra/static/css/main.e9315a53.css",
     "main.js": "/tour-of-cra/static/js/main.1a3dbd8f.js",
     "static/media/default_back.jpg": "/tour-of-cra/static/media/default_back.daf5d24e19b4c224e111.jpg",
     "static/media/default_Img.jpg": "/tour-of-cra/static/media/default_Img.410f00eab1bb504134ce.jpg",
     "index.html": "/tour-of-cra/index.html",
-    "main.2cb7073b.css.map": "/tour-of-cra/static/css/main.2cb7073b.css.map",
+    "main.e9315a53.css.map": "/tour-of-cra/static/css/main.e9315a53.css.map",
     "main.1a3dbd8f.js.map": "/tour-of-cra/static/js/main.1a3dbd8f.js.map"
   },
   "entrypoints": [
-    "static/css/main.2cb7073b.css",
+    "static/css/main.e9315a53.css",
     "static/js/main.1a3dbd8f.js"
   ]
 }
