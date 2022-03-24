@@ -89,16 +89,17 @@ flex-direction 속성은 플렉스 컨테이너 내의 아이템을 배치할 �
     left: 5%;
     width: 90%;
     font-size: 3vw;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(230, auto));
   }
-  .shortView {
+  .shortView_letters {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
   }
   .genresArray {
-    font-size: 0.5vw;
+    font-size: 2vw;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 1%;
   }
 }
